@@ -20,7 +20,7 @@ const addRating = async (req, res) => {
     const database = client.db('FestivalFinder');
     // const collection = database.collection('festivals');
     const collection1 = database
-      .collection('users')
+      .collection('festivals')
       .findOne({ name: req.body.name });
     const newRatingArray = [...collection1];
     newRatingArray.push({
@@ -28,6 +28,13 @@ const addRating = async (req, res) => {
       comment: req.body.comment,
       rating: req.body.rating,
     });
+
+    database
+      .collection('festivals')
+      .updateOne(
+        { name: req.body.name },
+        { $set: { ratings: newRatingArray } }
+      );
 
     // Logging the result of the insertion
     console.log(`${result.insertedCount} documents inserted`);
