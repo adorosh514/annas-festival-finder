@@ -8,7 +8,6 @@ const { addUser } = require('./handlers/addUser');
 const { updateUser } = require('./handlers/updateUser');
 const { deleteUser } = require('./handlers/deleteUser');
 const { addRating } = require('./handlers/addRating');
-const { updateRating } = require('./handlers/updateRating');
 const { deleteRating } = require('./handlers/deleteRating');
 
 app.use(function (req, res, next) {
@@ -38,7 +37,6 @@ app.patch('/updateUser', updateUser);
 app.delete('/deleteUser', deleteUser);
 app.post('/addRating', addRating);
 app.delete('/deleteRating/:rating', deleteRating);
-app.patch('/updateRating', updateRating);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

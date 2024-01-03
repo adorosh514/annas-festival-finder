@@ -19,11 +19,11 @@ async function batchImport() {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    // const collection = database.collection('festivals');
-    const collection1 = database.collection('users');
+    const collection = database.collection('festivals');
+    // const collection1 = database.collection('users');
 
     // Perform batch insert
-    const result = await collection1.insertMany(users);
+    const result = await collection.insertMany(festivals);
 
     // Logging the result of the insertion
     console.log(`${result.insertedCount} documents inserted`);

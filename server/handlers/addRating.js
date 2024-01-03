@@ -36,10 +36,12 @@ const addRating = async (req, res) => {
         { $set: { ratings: newRatingArray } }
       );
 
+    res.status(201).json({ status: 201, data: 'Rating Updated' });
+
     // Logging the result of the insertion
     console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
-    console.error('Error: ', err);
+    res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
     await client.close();
