@@ -18,8 +18,8 @@ const addRating = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    // const collection = database.collection('festivals');
-    const collection1 = database
+
+    const collection1 = await database
       .collection('festivals')
       .findOne({ name: req.body.name });
     const newRatingArray = [...collection1];
@@ -29,7 +29,7 @@ const addRating = async (req, res) => {
       rating: req.body.rating,
     });
 
-    database
+    await database
       .collection('festivals')
       .updateOne(
         { name: req.body.name },

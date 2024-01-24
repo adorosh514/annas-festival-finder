@@ -15,7 +15,7 @@ const festivals = [
   },
   {
     _id: 3,
-    name: 'Shambhala',
+    name: 'Shambhala Music Festival',
     location: 'Salmo, British Columbia',
     ratings: [],
     genre: 'EDM',

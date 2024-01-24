@@ -18,9 +18,8 @@ const deleteUser = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('user');
 
-    const deleteUser = database
+    const deleteUser = await database
       .collection('user')
       .deleteOne({ _id: req.params.user_id });
 

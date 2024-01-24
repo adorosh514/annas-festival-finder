@@ -29,14 +29,14 @@ app.get('/bacon', (req, res) => {
 });
 
 // REST endpoints?
-app.get('/getFestivals', getFestivals);
-app.get('/getFestival/:festival', getFestival);
-app.get('/getUser', getUser);
-app.post('/addUser', addUser);
-app.patch('/updateUser', updateUser);
-app.delete('/deleteUser', deleteUser);
-app.post('/addRating', addRating);
-app.delete('/deleteRating/:rating', deleteRating);
+app.get('/festivals', getFestivals);
+app.get('/festivals/:festival_id', getFestival);
+app.get('/users/:user_id', getUser);
+app.post('/users', addUser);
+app.patch('/users/:user_id', updateUser);
+app.delete('/users/:user_id', deleteUser);
+app.post('/rating', addRating);
+app.delete('/rating/:rating_id', deleteRating);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

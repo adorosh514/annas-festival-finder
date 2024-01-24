@@ -18,16 +18,18 @@ const getFestivals = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('festivals');
 
-    const festivalsArray = database.collection('festivals').find().toArray();
+    const festivalsArray = await database
+      .collection('festivals')
+      .find()
+      .toArray();
 
-    res.status(201).json({ status: 201, data: festivalsArray });
+    return res.status(201).json({ status: 201, data: festivalsArray });
 
     // Logging the result of the insertion
     console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
-    res.status(404).json({ status: 404, message: err.message });
+    return res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
     await client.close();

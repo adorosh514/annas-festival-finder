@@ -20,10 +20,10 @@ const addUser = async (req, res) => {
     const database = client.db('FestivalFinder');
     // const collection = database.collection('festivals');
 
-    const usersArray = database.collection('users').find().toArray();
+    const usersArray = await database.collection('users').find().toArray();
     if (usersArray.every((e) => e._id != req.body.email));
     {
-      const collection1 = database.collection('users').insertOne({
+      const collection1 = await database.collection('users').insertOne({
         _id: req.body.email,
         name: req.body.name,
         email: req.body.email,

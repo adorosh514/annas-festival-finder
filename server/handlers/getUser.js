@@ -18,18 +18,17 @@ const getUser = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('users');
-
-    const usersArray = database
+    console.log(req.params);
+    const user = await database
       .collection('users')
-      .findOne({ _id: req.params.user_id });
+      .findOne({ _id: parseInt(req.params.user_id) });
 
-    res.status(201).json({ status: 201, data: usersArray });
+    return res.status(201).json({ status: 201, data: user });
 
     // Logging the result of the insertion
-    console.log(`${result.insertedCount} documents inserted`);
+    console.log(`${user} documents inserted`);
   } catch (err) {
-    res.status(404).json({ status: 404, message: err.message });
+    return res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
     await client.close();

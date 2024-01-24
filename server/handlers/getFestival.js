@@ -1,5 +1,6 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
+('use strict');
 
 // MongoDB connection URI
 const { MONGO_URI } = process.env;
@@ -18,21 +19,20 @@ const getFestival = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('festivals');
-
-    const findOneFestival = database
+    console.log(req.params);
+    const findOneFestival = await database
       .collection('festivals')
-      .findOne({ _id: req.params.festival_id });
+      .findOne({ _id: parseInt(req.params.festival_id) });
 
+    console.log(`${findOneFestival.insertedCount} documents inserted`);
     res.status(201).json({ status: 201, data: findOneFestival });
 
     // Logging the result of the insertion
-    console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
     res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
-    await client.close();
+    client.close();
     console.log('MongoDB connection closed');
   }
 };

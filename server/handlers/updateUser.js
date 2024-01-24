@@ -18,9 +18,8 @@ const updateUser = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('users');
 
-    const updateUser = database
+    const updateUser = await database
       .collection('users')
       .updateOne({ _id: req.params.user_id }, { $set: req.body });
 

@@ -18,16 +18,15 @@ const deleteRating = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    const collection = database.collection('festivals');
 
-    const removeRating = database
+    const removeRating = await database
       .collection('festivals')
       .findOne({ _id: req.params.festival_id });
 
     let ratingArray = [...removeRating.ratings];
     ratingArray = ratingArray.filter((r) => r.user != req.params.user_id);
 
-    const updateRating = database
+    const updateRating = await database
       .collection('festivals')
       .updateOne(
         { _id: req.params.festival_id },
