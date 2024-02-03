@@ -13,6 +13,8 @@ function FestivalPage() {
   // 		<>
   // 		{festivals.map((festival))}
   // );
+
+  //req.params to match festival data to be printed
 }
 
 export default FestivalPage;

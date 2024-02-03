@@ -197,7 +197,7 @@ function LandingPage() {
           {hover?.rap &&
             festivals.length &&
             festivals
-              .filter((e) => e.genre == 'Rap')
+              .filter((e) => e.genre == 'Rap/Hip-Hop')
               .map((festival) => {
                 return (
                   <FestivalList to={`/festivals/${festival.name}`}>
