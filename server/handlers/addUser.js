@@ -15,6 +15,7 @@ const addUser = async (req, res) => {
     // Connect to MongoDB
     await client.connect();
     console.log('Connected to MongoDB Atlas');
+    console.log(req.body);
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
@@ -30,12 +31,12 @@ const addUser = async (req, res) => {
       });
     }
 
-    res.status(201).json({ status: 201, data: 'User Updated' });
-
+    return res.status(201).json({ status: 201, data: 'User Updated' });
     // Logging the result of the insertion
     console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
-    res.status(404).json({ status: 404, message: err.message });
+    console.log(err);
+    return res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
     await client.close();
