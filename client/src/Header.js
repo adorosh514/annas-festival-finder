@@ -5,7 +5,7 @@ import LogoutButton from './LogoutButton';
 function Header() {
   return (
     <div>
-      Anna's Festival Finder
+      Festival Finder
       <LoginButton />
       <LogoutButton />
     </div>

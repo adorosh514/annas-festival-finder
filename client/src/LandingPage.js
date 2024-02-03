@@ -128,11 +128,17 @@ function LandingPage() {
             }}>
             Rock
           </GenreDiv>
-          {hover?.rock && (
-            <FestivalList>
-              <div>Rock Fest</div>
-            </FestivalList>
-          )}
+          {hover?.rock &&
+            festivals.length &&
+            festivals
+              .filter((e) => e.genre == 'Rock')
+              .map((festival) => {
+                return (
+                  <FestivalList to={`/festivals/${festival.name}`}>
+                    <div>{festival.name}</div>
+                  </FestivalList>
+                );
+              })}
         </GenreContainer>
         <GenreContainer>
           <GenreDiv
@@ -144,11 +150,17 @@ function LandingPage() {
             }}>
             Metal
           </GenreDiv>
-          {hover?.metal && (
-            <FestivalList>
-              <div>Louder Than Life</div>
-            </FestivalList>
-          )}
+          {hover?.metal &&
+            festivals.length &&
+            festivals
+              .filter((e) => e.genre == 'Metal')
+              .map((festival) => {
+                return (
+                  <FestivalList to={`/festivals/${festival.name}`}>
+                    <div>{festival.name}</div>
+                  </FestivalList>
+                );
+              })}
         </GenreContainer>
         <GenreContainer>
           <GenreDiv
@@ -160,12 +172,17 @@ function LandingPage() {
             }}>
             EDM
           </GenreDiv>
-          {hover?.edm && (
-            <FestivalList>
-              <div>Shambhala Music Festival</div>
-              <div>Electric Daisy Carnival (EDC)</div>
-            </FestivalList>
-          )}
+          {hover?.edm &&
+            festivals.length &&
+            festivals
+              .filter((e) => e.genre == 'EDM')
+              .map((festival) => {
+                return (
+                  <FestivalList to={`/festivals/${festival.name}`}>
+                    <div>{festival.name}</div>
+                  </FestivalList>
+                );
+              })}
         </GenreContainer>
         <GenreContainer>
           <GenreDiv
@@ -177,11 +194,17 @@ function LandingPage() {
             }}>
             Rap/Hip-Hop
           </GenreDiv>
-          {hover?.rap && (
-            <FestivalList>
-              <div>Rolling Loud</div>
-            </FestivalList>
-          )}
+          {hover?.rap &&
+            festivals.length &&
+            festivals
+              .filter((e) => e.genre == 'Rap')
+              .map((festival) => {
+                return (
+                  <FestivalList to={`/festivals/${festival.name}`}>
+                    <div>{festival.name}</div>
+                  </FestivalList>
+                );
+              })}
         </GenreContainer>
         <GenreContainer>
           <GenreDiv
@@ -193,12 +216,17 @@ function LandingPage() {
             }}>
             Mixed
           </GenreDiv>
-          {hover?.mixed && (
-            <FestivalList>
-              <div>Coachella</div>
-              <div>Bonnaroo</div>
-            </FestivalList>
-          )}
+          {hover?.mixed &&
+            festivals.length &&
+            festivals
+              .filter((e) => e.genre == 'Mixed')
+              .map((festival) => {
+                return (
+                  <FestivalList to={`/festivals/${festival.name}`}>
+                    <div>{festival.name}</div>
+                  </FestivalList>
+                );
+              })}
         </GenreContainer>
       </FestivalContainer>
     </Wrapper>
