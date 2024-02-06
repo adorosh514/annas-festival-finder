@@ -23,7 +23,7 @@ const getFestivals = async (req, res) => {
       .collection('festivals')
       .find()
       .toArray();
-
+    console.log(festivals);
     return res.status(201).json({ status: 201, data: festivalsArray });
 
     // Logging the result of the insertion

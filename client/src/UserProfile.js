@@ -15,21 +15,18 @@ function UserProfile() {
         .catch((e) => console.log(e));
   }, [isAuthenticated]);
 
-  // console.log(profile);
-
   return (
     <Wrapper>
       <img />
       <div>
         <text>Username</text>
-        <h1>Anna</h1>
+        <h1>Anna Banana</h1>
         <text>Location</text>
         <input></input>
         <div>
           <h1>Shambhala Music Festival</h1>
           <text>Ratings</text>
           <input></input>
-          <text>Comments</text>
           <input></input>
         </div>
       </div>

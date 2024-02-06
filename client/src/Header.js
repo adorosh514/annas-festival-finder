@@ -14,7 +14,7 @@ function Header() {
       </LogoContainer>
       <h1>Festival Finder</h1>
       <ProfileIconContainer>
-        <Link to="/">
+        <Link to="/profile">
           <LogoImg src="https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png" />
         </Link>
       </ProfileIconContainer>
@@ -36,12 +36,17 @@ const LogoContainer = styled.div`
   max-width: 100px;
 `;
 
-const ProfileIconContainer = styled.div`
-  max-width: 100px;
-`;
 const LogoImg = styled.img`
   max-width: 100%;
   height: auto;
+`;
+
+const ProfileIconContainer = styled.div`
+  max-width: 100px;
+`;
+
+const ProfileButton = styled(Link)`
+  max-width: 100px;
 `;
 
 export default Header;

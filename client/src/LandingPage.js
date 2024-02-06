@@ -65,10 +65,10 @@ function LandingPage() {
           {hover?.punk &&
             festivals.length &&
             festivals
-              .filter((e) => e.genre == 'Mixed')
+              .filter((e) => e.genre == 'Punk/Hardcore')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -90,7 +90,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Jazz')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -112,7 +112,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Country')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -134,7 +134,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Rock')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -156,7 +156,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Metal')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -178,7 +178,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'EDM')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -200,7 +200,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Rap/Hip-Hop')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
@@ -222,7 +222,7 @@ function LandingPage() {
               .filter((e) => e.genre == 'Mixed')
               .map((festival) => {
                 return (
-                  <FestivalList to={`/festivals/${festival.name}`}>
+                  <FestivalList to={`/festivals/${festival._id}`}>
                     <div>{festival.name}</div>
                   </FestivalList>
                 );
