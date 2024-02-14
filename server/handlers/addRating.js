@@ -22,10 +22,11 @@ const addRating = async (req, res) => {
     const collection1 = await database
       .collection('festivals')
       .findOne({ name: req.body.name });
-    const newRatingArray = [...collection1];
+    console.log(collection1);
+    const newRatingArray = [...collection1.ratings];
     newRatingArray.push({
       user: req.body.user,
-      comment: req.body.comment,
+      // comment: req.body.comment,
       rating: req.body.rating,
     });
 
@@ -39,7 +40,6 @@ const addRating = async (req, res) => {
     res.status(201).json({ status: 201, data: 'Rating Updated' });
 
     // Logging the result of the insertion
-    console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
     res.status(404).json({ status: 404, message: err.message });
   } finally {

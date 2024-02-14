@@ -19,24 +19,31 @@ const deleteRating = async (req, res) => {
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
 
+    console.log(req.params.festival_id);
+
     const removeRating = await database
       .collection('festivals')
-      .findOne({ _id: req.params.festival_id });
+      .findOne({ _id: parseInt(req.params.festival_id) });
+
+    console.log({ removeRating });
 
     let ratingArray = [...removeRating.ratings];
-    ratingArray = ratingArray.filter((r) => r.user != req.params.user_id);
+    ratingArray = ratingArray.filter((r) => r.user != req.body.user);
 
     const updateRating = await database
       .collection('festivals')
       .updateOne(
-        { _id: req.params.festival_id },
+        { _id: parseInt(req.params.festival_id) },
         { $set: { ratings: ratingArray } }
       );
 
-    res.status(201).json({ status: 201, data: 'Rating Updated' });
+    console.log({ updateRating });
+
+    res
+      .status(201)
+      .json({ status: 201, data: updateRating, message: 'Rating Updated' });
 
     // Logging the result of the insertion
-    console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
     res.status(404).json({ status: 404, message: err.message });
   } finally {

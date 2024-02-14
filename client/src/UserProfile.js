@@ -7,32 +7,44 @@ function UserProfile() {
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
   const [profile, setProfile] = useState([]);
 
-  useEffect(() => {
-    if (isAuthenticated)
-      fetch(`/users/${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setProfile(data.data))
-        .catch((e) => console.log(e));
-  }, [isAuthenticated]);
-
   return (
     <Wrapper>
-      <img />
-      <div>
-        <text>Username</text>
-        <h1>Anna Banana</h1>
-        <text>Location</text>
-        <input></input>
-        <div>
-          <h1>Shambhala Music Festival</h1>
-          <text>Ratings</text>
-          <input></input>
-          <input></input>
-        </div>
-      </div>
+      <AvatrImg src="https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png" />
+      <ProfileDiv>
+        <UsernameDiv>
+          <TitleH1>Username:</TitleH1>
+          <ValueH2>Banana</ValueH2>
+        </UsernameDiv>
+        <EmailDiv>
+          <TitleH1>Email:</TitleH1>
+          <ValueH2>{user?.email}</ValueH2>
+        </EmailDiv>
+      </ProfileDiv>
     </Wrapper>
   );
 }
+
+const ProfileDiv = styled.div``;
+
+const TitleH1 = styled.h1`
+  margin: 0;
+`;
+
+const ValueH2 = styled.h2`
+  margin: 0;
+`;
+
+const UsernameDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+`;
+
+const EmailDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,6 +52,12 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   background-color: pink;
+  gap: 1%;
 `;
 
+const AvatrImg = styled.img`
+  display: flex;
+  justify-content: center;
+  width: 30%;
+`;
 export default UserProfile;

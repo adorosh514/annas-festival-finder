@@ -8,14 +8,14 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import Profile from './Profile';
 import { useAuth0 } from '@auth0/auth0-react';
+import styled from 'styled-components';
 
 function App() {
   const { isLoading, error } = useAuth0();
 
   return (
-    <div>
-      <main className="column">
-        {/* <h1>Auth0 Login</h1> */}
+    <Wrapper>
+      <main>
         {error && <p>Authentication Error</p>}
         {!error && isLoading && <p>Loading...</p>}
         {!error && !isLoading && (
@@ -34,8 +34,10 @@ function App() {
           </>
         )}
       </main>
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div``;
 
 export default App;

@@ -13,13 +13,15 @@ function Header() {
         </Link>
       </LogoContainer>
       <h1>Festival Finder</h1>
-      <ProfileIconContainer>
-        <Link to="/profile">
-          <LogoImg src="https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png" />
-        </Link>
-      </ProfileIconContainer>
-      <LoginButton />
-      <LogoutButton />
+      <HeaderEndDiv>
+        <ProfileIconContainer>
+          <Link to="/profile">
+            <AvatarImg src="https://cdn.pixabay.com/photo/2017/06/13/12/54/profile-2398783_1280.png" />
+          </Link>
+        </ProfileIconContainer>
+        <LoginButton />
+        <LogoutButton />
+      </HeaderEndDiv>
     </HeaderContainer>
   );
 }
@@ -29,20 +31,34 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 5px;
+  margin-inline: 10px;
+  margin-bottom: 20px;
   background-color: #f0f0f0;
 `;
 
-const LogoContainer = styled.div`
-  max-width: 100px;
-`;
+const LogoContainer = styled.div``;
 
 const LogoImg = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: 200px;
+  object-fit: contain;
+`;
+
+const HeaderEndDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 5px;
+  margin: 10px;
 `;
 
 const ProfileIconContainer = styled.div`
   max-width: 100px;
+`;
+
+const AvatarImg = styled.img`
+  display: flex;
+  justify-content: center;
+  width: 60px;
 `;
 
 const ProfileButton = styled(Link)`

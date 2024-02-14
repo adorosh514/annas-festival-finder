@@ -10,7 +10,7 @@ const client = new MongoClient(MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-const getFestivals = async (req, res) => {
+const editRating = async (req, res) => {
   try {
     // Connect to MongoDB
     await client.connect();
@@ -18,18 +18,24 @@ const getFestivals = async (req, res) => {
 
     // Accessing the database and collection
     const database = client.db('FestivalFinder');
+    console.log(req.body);
+    const updateRating = await database.collection('festivals').updateOne(
+      {
+        _id: parseInt(req.params.festival_id),
+        'ratings.user': req.body.user,
+      },
+      { $set: { 'ratings.$.rating': req.body.rating } }
+    );
 
-    const festivalsArray = await database
-      .collection('festivals')
-      .find()
-      .toArray();
-    console.log(festivalsArray);
-    return res.status(201).json({ status: 201, data: festivalsArray });
+    console.log({ updateRating });
+
+    res
+      .status(201)
+      .json({ status: 201, data: updateRating, message: 'Rating Updated' });
 
     // Logging the result of the insertion
-    console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
-    return res.status(404).json({ status: 404, message: err.message });
+    res.status(404).json({ status: 404, message: err.message });
   } finally {
     // Close the connection
     await client.close();
@@ -38,4 +44,4 @@ const getFestivals = async (req, res) => {
 };
 
 // Execute the batchImport function
-module.exports = { getFestivals };
+module.exports = { editRating };
