@@ -28,22 +28,18 @@ function LandingPage() {
   useEffect(() => {
     if (isAuthenticated)
       fetch('/users', {
-        // Adjust the URL here
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Add any other headers as needed
         },
         body: JSON.stringify(user),
       })
         .then((response) => {
           console.log(response);
 
-          // Handle successful response, if needed
           console.log('User added successfully!');
         })
         .catch((error) => {
-          // Handle errors
           console.error('Error adding user:', error.message);
         });
   }, [isAuthenticated]);

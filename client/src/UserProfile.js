@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: pink;
+  background-color: lightpink;
   gap: 1%;
 `;
 

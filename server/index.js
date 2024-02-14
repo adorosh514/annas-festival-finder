@@ -29,7 +29,6 @@ app.get('/bacon', (req, res) => {
   res.send({ data: 'Hello World!' });
 });
 
-// REST endpoints?
 app.get('/festivals', getFestivals);
 app.get('/festivals/:festival_id', getFestival);
 app.get('/users/:user_id', getUser);

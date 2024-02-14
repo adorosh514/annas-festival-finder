@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-// MongoDB connection URI
 const { MONGO_URI } = process.env;
 console.log(MONGO_URI);
 console.log(process.env);
@@ -12,14 +11,11 @@ const client = new MongoClient(MONGO_URI, {
 
 const addUser = async (req, res) => {
   try {
-    // Connect to MongoDB
     await client.connect();
     console.log('Connected to MongoDB Atlas');
     console.log(req.body);
 
-    // Accessing the database and collection
     const database = client.db('FestivalFinder');
-    // const collection = database.collection('festivals');
 
     const usersArray = await database.collection('users').find().toArray();
     if (usersArray.every((e) => e._id != req.body.email));
@@ -32,17 +28,15 @@ const addUser = async (req, res) => {
     }
 
     return res.status(201).json({ status: 201, data: 'User Updated' });
-    // Logging the result of the insertion
+
     console.log(`${result.insertedCount} documents inserted`);
   } catch (err) {
     console.log(err);
     return res.status(404).json({ status: 404, message: err.message });
   } finally {
-    // Close the connection
     await client.close();
     console.log('MongoDB connection closed');
   }
 };
 
-// Execute the batchImport function
 module.exports = { addUser };

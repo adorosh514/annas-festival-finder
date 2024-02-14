@@ -16,11 +16,6 @@ function FestivalPage() {
     fetch(`/festivals/${festivalId}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(
-        //   data.data.ratings.find((e) => e.user === user?.email).rating
-        // );
-
-        // setRating(data.data.ratings.find((e) => e.user === user?.email).rating);
         setFestival(data.data);
       });
   };
@@ -176,6 +171,7 @@ const RatingDiv = styled.div`
   gap: 1%;
   justify-content: center;
 `;
+
 const RatingInput = styled.div`
   display: flex;
 `;
