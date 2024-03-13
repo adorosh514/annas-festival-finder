@@ -11,21 +11,37 @@ My website will provide a database of North American based music festivals categ
 Breakdown:
   
 10-20 genres
+
 5-7 festivals (Canada & US only for now)
+
 User profiles
+
 Festival rating system
+
 Features (3 pages)
+
 Header
+
 Clickable logo
+
 Header with auth0 sign-in button
+
 Once a user is logged in, the login button will be replaced with a logout button
+
 Homepage
+
 Dropdown which supplies list of festivals
+
 Genre selection then in turn pulls up related festival recommendations
+
 Pop-up page to provide details on each specific festival
+
 User profile page 
+
 User can modify profile info
+
 Signed in users can rate festivals
+
 User not signed up can only view festival ratings
 
 
