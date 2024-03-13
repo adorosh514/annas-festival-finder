@@ -8,8 +8,8 @@ Summary:
 
 My website will provide a database of North American based music festivals categorized by music genres. It will provide features such as auth0 login for users, profiles that can be customized once the user has signed up, as well as a 5-star rating system for festivals that each user has the ability to add, edit, or delete after they’ve attended. 
 
-* Breakdown*
-* 
+Breakdown:
+  
 10-20 genres
 5-7 festivals (Canada & US only for now)
 User profiles
