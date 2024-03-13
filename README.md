@@ -1,6 +1,7 @@
 # annas-festival-finder
 
 Name of Project:
+
 Festival Finder
 
 Summary:
